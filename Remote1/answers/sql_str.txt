@@ -1,0 +1,16 @@
+with backlog as (
+select *, 
+	date_trunc('week',state_1)::DATE as week,
+	case 
+		when  	state_2::DATE - state_1::DATE <=1 then 0
+		else 1
+	end as BackLog_YN,
+	case 
+		when  	state_2::DATE - state_1::DATE <=1 then NULL
+		when  	state_2::DATE - state_1::DATE <= 14 then state_2::DATE - state_1::DATE
+		else 	14
+	end as BackLog
+from public."Blueground"
+)
+
+select week, round(avg(BackLog),2) as backlog from backlog where BackLog_YN = 1 group by week order by week
