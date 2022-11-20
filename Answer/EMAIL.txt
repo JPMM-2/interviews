@@ -1,0 +1,12 @@
+email
+
+Hi Konstantinos,
+
+Attached you have 3 files:
+	- "import_CVS.py": 	It is the Python script to import the data into my PostgreSQL database
+	- "sql_str.txt":	It is the SQL statment for the requested query
+	- "output.csv":		It is the output of the query
+
+
+Kind regards
+JP
